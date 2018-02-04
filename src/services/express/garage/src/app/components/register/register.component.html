@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mr-auto ml-auto">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" placeholder="enter name" ngModel>
+        </div>
+        <button class="btn btn-primary" type="submit">Register User</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="users.length !== 0" class="row">
+    <div class="col-8 mr-auto ml-auto">
+      <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item">{{ user.full_name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
