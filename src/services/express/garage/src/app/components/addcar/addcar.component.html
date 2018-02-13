@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h4>Car</h4>
+        <div class="test-div">
+          <img src="{{ carForm.form.value.carPicture }}" width="200">
+          <form (ngSubmit)="onSubmit(cf)" #cf="ngForm">
+            <div class="form-group">
+              <label for="make">Make</label>
+              <input type="text" class="form-control" name="make" ngModel>
+              <br>
+              <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" class="form-control" name="model" ngModel>
+                <br>
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" name="year" ngModel>
+                <br>
+                <div class="form-group">
+                    <label for="carPicture">Picture URL</label>
+                    <input type="text" class="form-control" name="carPicture" ngModel>
+                <br>
+                <div class="form-group">
+                    <label for="milePerDay">Miles Per Day</label>
+                    <input type="text" class="form-control" name="milePerDay" ngModel>
+                <br>
+                <form class="form-inline"> 
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                          </button>
+                        </div>
+                      </div>
+                  <br>                
+                
+                </div>
+              </form>
+              <br>
+              <button class="btn btn-primary" type="submit">Submit Form</button>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+

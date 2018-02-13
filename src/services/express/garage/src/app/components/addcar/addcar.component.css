@@ -1,10 +1,8 @@
 .container {
     background-color: rgba(29, 131, 240, 0.105);
-    padding: 20px;
+    padding: 10px;
 }
 
-.testr-div {
+.test-div {
     width: 100%;
 }
-
-

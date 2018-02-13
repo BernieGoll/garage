@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="appNav">  
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dad's Garage <i class="fa fa-car"></i></a>  
+
+      <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="navCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div [ngbCollapse]="!isNavbarCollapsed" class="navbar-collapse justify-content-end" id="navCollapse">
+        <ul class="navbar-nav">
+          <!--                    code for Home button        -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a routerLink="/add-car" routerLinkActive="active" class="nav-link">Add Car</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/summary" routerLinkActive="active" class="nav-link">Garage Summary</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/jobs" routerLinkActive="active" class="nav-link">Jobs Update</a>
+          </li> 
+          <li class="nav-item">
+              <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
+              </li>        
+        </ul>
+      </div>
+    </div>
+  </nav>

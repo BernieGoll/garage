@@ -1,35 +1,28 @@
-// General configurations
 import { Router } from 'express'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-
-// Importing all functions from controller.js
 import { create, index, show, update, destroy } from './controller'
-
-// Importing user schema from model.js
 import { schema } from './model'
 export Users, { schema } from './model'
 
 const router = new Router()
-const { full_name, carId } = schema.tree
+const { full_name, username, password, email, carID } = schema.tree
 
 /**
  * @api {post} /users Create users
  * @apiName CreateUsers
  * @apiGroup Users
- * @apiParam name Users's name.
- * @apiParam carId Users's carId.
+ * @apiParam full_name Users's full_name.
+ * @apiParam username Users's username.
+ * @apiParam password Users's password.
+ * @apiParam email Users's email.
+ * @apiParam carID Users's carID.
  * @apiSuccess {Object} users Users's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Users not found.
  */
-
- /**
-  * When we post to http://0.0.0.0:9000/api/users
-  * Execute create method from controller.js
-  */
 router.post('/',
-  body({ full_name, carId }),
+  body({ full_name, username, password, email, carID }),
   create)
 
 /**
@@ -40,10 +33,6 @@ router.post('/',
  * @apiSuccess {Object[]} users List of users.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
-/**
-  * When we get from http://0.0.0.0:9000/api/users
-  * Execute index method from controller.js
-  */
 router.get('/',
   query(),
   index)
@@ -63,14 +52,17 @@ router.get('/:id',
  * @api {put} /users/:id Update users
  * @apiName UpdateUsers
  * @apiGroup Users
- * @apiParam name Users's name.
- * @apiParam carId Users's carId.
+ * @apiParam full_name Users's full_name.
+ * @apiParam username Users's username.
+ * @apiParam password Users's password.
+ * @apiParam email Users's email.
+ * @apiParam carID Users's carID.
  * @apiSuccess {Object} users Users's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Users not found.
  */
 router.put('/:id',
-  body({ full_name, carId }),
+  body({ full_name, username, password, email, carID }),
   update)
 
 /**

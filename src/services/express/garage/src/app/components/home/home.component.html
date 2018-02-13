@@ -1,3 +1,74 @@
-<p>
-  home works!
-</p>
+<div *ngIf="userLoggedIn" class="container">
+  <h2>Welcome {{ user }}</h2>
+  <h4>Here Are the Cars In Your Garage</h4>
+  <div class="row">
+    <div class="col-12">
+        <img class="carPic" src="../assets/images/altima.jpg" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <img class="carPic" src="../assets/images/mazda6.jpg" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <img class="carPic" src="../assets/images/suzuki.jpg" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <img class="carPic" src="../assets/images/mazdacx9.jpg" alt="">
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div *ngIf="!userLoggedIn" class="container">
+        <h4>Welcome to Dad's Garage</h4>
+        <div class="row">    
+          <div class="col-6">
+            <app-login></app-login>
+          </div>
+          <div class="col-6">
+            <app-register></app-register>
+          </div>      
+        </div> 
+    </div>
+
+
+
+<!--
+      <button class="btn btn-primary">Register</button>
+      <button class="btn btn-primary" (click)="logIn()">Login</button>
+    -->
+
+<!--
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <h3>Nissan Altima</h3>
+        
+        <img src="../assets/images/altima.jpg" class="img-rounded" style="margin-left: 20px;">
+
+        <div class="row">
+            <div class="col-6">
+              <h3>Mazda6</h3>
+              
+              <img src="../assets/images/mazda6.jpg" class="img-rounded" style="margin-left: 20px;">
+      </div>
+    </div>
+      <div class="col-6">
+          <h3>Suzuki</h3>
+          
+          <img src="../assets/images/suzuki.jpg" class="img-rounded" style="margin-left: 10px;">
+  
+          <div class="row">
+              <div class="col-6">
+                <h3>Mazda CX9</h3>
+                
+                <img src="../assets/images/mazdacx9.jpg" class="img-rounded" style="margin-left: 20px;">
+              -->              
+      

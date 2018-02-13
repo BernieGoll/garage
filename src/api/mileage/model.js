@@ -1,26 +1,14 @@
 import mongoose, { Schema } from 'mongoose'
 
-const carsSchema = new Schema({
-  userId: {
-    type: Number
-  },
-  make: {
+const mileageSchema = new Schema({
+  carID: {
     type: String
-  },
-  model: {
-    type: String
-  },
-  year: {
-    type: Number
-  },
-  milesPerDay: {
-    type: Number
-  },
-  dateAdded: {
-    type: Date
   },
   mileage: {
-    type: Number
+    type: String
+  },
+  date: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -30,18 +18,14 @@ const carsSchema = new Schema({
   }
 })
 
-carsSchema.methods = {
+mileageSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      userId: this.userId,
-      make: this.make,
-      model: this.model,
-      year: this.year,
-      milesPerDay: this.milesPerDay,
-      dateAdded: this.dateAdded,
+      carID: this.carID,
       mileage: this.mileage,
+      date: this.date,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -53,7 +37,7 @@ carsSchema.methods = {
   }
 }
 
-const model = mongoose.model('Cars', carsSchema)
+const model = mongoose.model('Mileage', mileageSchema)
 
 export const schema = model.schema
 export default model

@@ -1,36 +1,36 @@
 import { success, notFound } from '../../services/response/'
-import { Users } from '.'
+import { Mileage } from '.'
 
 export const create = ({ bodymen: { body } }, res, next) =>
-  Users.create(body)
-    .then((users) => users.view(true))
+  Mileage.create(body)
+    .then((mileage) => mileage.view(true))
     .then(success(res, 201))
     .catch(next)
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
-  Users.find(query, select, cursor)
-    .then((users) => users.map((users) => users.view()))
+  Mileage.find(query, select, cursor)
+    .then((mileages) => mileages.map((mileage) => mileage.view()))
     .then(success(res))
     .catch(next)
 
 export const show = ({ params }, res, next) =>
-  Users.findById(params.id)
+  Mileage.findById(params.id)
     .then(notFound(res))
-    .then((users) => users ? users.view() : null)
+    .then((mileage) => mileage ? mileage.view() : null)
     .then(success(res))
     .catch(next)
 
 export const update = ({ bodymen: { body }, params }, res, next) =>
-  Users.findById(params.id)
+  Mileage.findById(params.id)
     .then(notFound(res))
-    .then((users) => users ? Object.assign(users, body).save() : null)
-    .then((users) => users ? users.view(true) : null)
+    .then((mileage) => mileage ? Object.assign(mileage, body).save() : null)
+    .then((mileage) => mileage ? mileage.view(true) : null)
     .then(success(res))
     .catch(next)
 
 export const destroy = ({ params }, res, next) =>
-  Users.findById(params.id)
+  Mileage.findById(params.id)
     .then(notFound(res))
-    .then((users) => users ? users.remove() : null)
+    .then((mileage) => mileage ? mileage.remove() : null)
     .then(success(res, 204))
     .catch(next)

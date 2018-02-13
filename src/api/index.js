@@ -1,11 +1,16 @@
 import { Router } from 'express'
 import users from './users'
 import cars from './cars'
+import oilChange from './oilChange'
+import mileage from './mileage'
 
 const router = new Router()
 
 router.use('/users', users)
 router.use('/cars', cars)
+router.use('/oilChanges', oilChange)
+router.use('/mileages', mileage)
+
 
 /**
  * @apiDefine master Master access only

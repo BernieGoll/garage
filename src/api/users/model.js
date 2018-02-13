@@ -4,8 +4,17 @@ const usersSchema = new Schema({
   full_name: {
     type: String
   },
-  carId: {
+  username: {
     type: String
+  },
+  password: {
+    type: String
+  },
+  email: {
+    type: String
+  },
+  carID: {
+    type: Number
   }
 }, {
   timestamps: true,
@@ -21,7 +30,10 @@ usersSchema.methods = {
       // simple view
       id: this.id,
       full_name: this.full_name,
-      carId: this.carId,
+      username: this.username,
+      password: this.password,
+      email: this.email,
+      carID: this.carID,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

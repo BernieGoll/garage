@@ -15,4 +15,9 @@ export class DatabaseService {
     return this.http.get<any[]>('/api/users');
   }
 
+  getCarsServiceMethod() {
+    // Return an Observable
+    return this.http.get<any[]>('/api/cars');
+  }
+
 }
